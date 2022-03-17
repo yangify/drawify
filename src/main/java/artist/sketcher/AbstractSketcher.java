@@ -1,8 +1,8 @@
 package artist.sketcher;
 
 import canvas.Canvas;
-import line.Line;
-import shape.Shape;
+import sketch.line.Line;
+import sketch.shape.Shape;
 
 public abstract class AbstractSketcher {
 
