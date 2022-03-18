@@ -1,5 +1,5 @@
 package artist;
 
-public interface Artist {
+public class Artist {
 
 }
