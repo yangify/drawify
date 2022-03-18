@@ -56,17 +56,6 @@ public class SketchTest {
     }
 
     @Test
-    public void whenParameterIsNotAligned_thenThrowException() {
-        List<String> parameters = List.of("10", "8", "11", "12");
-        Exception exception = assertThrows(InvalidParameterException.class, () -> new Sketch(parameters));
-
-        String expectedMessage = "Start and end points needs to be aligned either vertically or horizontally";
-        String actualMessage = exception.getMessage();
-
-        assertEquals(expectedMessage, actualMessage);
-    }
-
-    @Test
     public void whenParameterIsValid_thenReturnLine() {
         List<String> parameters = List.of("10", "8", "10", "3");
         Sketch sketch = new Sketch(parameters);
