@@ -31,7 +31,7 @@ public class CommandFactoryTest {
 
     @Test
     public void whenDrawLineCommandValid_returnsDrawLine() {
-        String rawCommand = "L 1 1 2 2";
+        String rawCommand = "L 1 1 1 2";
         Command create = CommandFactory.create(rawCommand);
         assert create != null;
         assertEquals(create.getClass(), Draw.class);
