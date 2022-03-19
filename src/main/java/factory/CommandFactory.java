@@ -19,7 +19,8 @@ public class CommandFactory {
             case "R": return new Draw(new Rectangle(parameters));
             case "B": return new Paint(parameters);
             case "Q": return new Quit();
-            default: return null;
+            case "": return null;
+            default: throw new RuntimeException("Unrecognised command");
         }
     }
 }

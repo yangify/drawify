@@ -1,9 +1,12 @@
 package factory;
 
 import command.*;
+import exception.InvalidParameterException;
 import org.junit.Test;
+import sketch.line.Line;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertThrows;
 
 public class CommandFactoryTest {
 
@@ -15,10 +18,14 @@ public class CommandFactoryTest {
     }
 
     @Test
-    public void whenCommandUnknown_returnNull() {
+    public void whenCommandUnknown_thenThrowException() {
         String rawCommand = "J 13 14";
-        Command create = CommandFactory.create(rawCommand);
-        assert create == null;
+        Exception exception = assertThrows(RuntimeException.class, () -> CommandFactory.create(rawCommand));
+
+        String expectedMessage = "Unrecognised command";
+        String actualMessage = exception.getMessage();
+
+        assertEquals(expectedMessage, actualMessage);
     }
 
     @Test
