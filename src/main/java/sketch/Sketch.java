@@ -7,34 +7,37 @@ import java.util.List;
 
 public class Sketch {
 
-    protected Point start;
-    protected Point end;
+    protected Point p1;
+    protected Point p2;
 
     public Sketch(List<String> parameters) {
         if (parameters == null || parameters.size() < 4)
             throw new InvalidParameterException("Both start and end coordinates required");
 
+        if (parameters.size() > 4)
+            throw new InvalidParameterException("Numbers provided exceed requirement, only 2 points required");
+
         try {
-            int startX = Integer.parseInt(parameters.get(0));
-            int startY = Integer.parseInt(parameters.get(1));
-            this.start = new Point(startX, startY);
+            int x1 = Integer.parseInt(parameters.get(0));
+            int y1 = Integer.parseInt(parameters.get(1));
+            this.p1 = new Point(x1, y1);
 
-            int endX = Integer.parseInt(parameters.get(2));
-            int endY = Integer.parseInt(parameters.get(3));
-            this.end = new Point(endX, endY);
+            int x2 = Integer.parseInt(parameters.get(2));
+            int y2 = Integer.parseInt(parameters.get(3));
+            this.p2 = new Point(x2, y2);
 
-            if (startX < 0 || startY < 0 || endX < 0 || endY < 0) throw new NumberFormatException();
+            if (x1 < 0 || y1 < 0 || x2 < 0 || y2 < 0) throw new NumberFormatException();
 
         } catch (NumberFormatException e) {
-            throw new InvalidParameterException("Both start and end coordinates must be positive digit");
+            throw new InvalidParameterException("All points must be positive digit");
         }
     }
 
-    public Point getStart() {
-        return this.start;
+    public Point getP1() {
+        return p1;
     }
 
-    public Point getEnd() {
-        return this.end;
+    public Point getP2() {
+        return p2;
     }
 }
