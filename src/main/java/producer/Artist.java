@@ -23,16 +23,16 @@ public class Artist {
     }
 
     static boolean isExceedCanvas(Canvas canvas, Sketch sketch) {
-        int rows = canvas.getWidth();
-        int cols = canvas.getHeight();
-
         Point[] points =  new Point[]{sketch.getP1(), sketch.getP2()};
         for (Point point : points) {
-            int x = point.getX();
-            int y = point.getY();
-            if (x < 0 || x >= rows || y < 0 || y >= cols) return true;
+            if (isExceedCanvas(canvas, point)) return true;
         }
-
         return false;
+    }
+
+    static boolean isExceedCanvas(Canvas canvas, Point point) {
+        int x = point.getX();
+        int y = point.getY();
+        return x < 0 || x >= canvas.getWidth() || y < 0 || y >= canvas.getHeight();
     }
 }
