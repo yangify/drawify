@@ -28,7 +28,7 @@ public class Application {
 
     public static void execute(Command command) {
         if (command instanceof Create) canvas = CanvasFactory.execute((Create) command);
-        Illustrator.execute(canvas, command);
+        Illustrator.illustrate(canvas, command);
     }
 
     public static String prompt() {

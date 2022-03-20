@@ -15,7 +15,7 @@ public class IllustratorTest {
     @Test
     public void whenExecutingAndCanvasNull_thenThrowException() {
         Exception exception = Assert.assertThrows(IllegalArgumentException.class,
-                () -> Illustrator.execute(null, null));
+                () -> Illustrator.illustrate(null, null));
 
         String expectedMessage = "Canvas must not be null";
         String actualMessage = exception.getMessage();
@@ -27,7 +27,7 @@ public class IllustratorTest {
     public void whenExecutingAndCommandNull_thenThrowException() {
         Canvas canvas = new Canvas(5, 5);
         Exception exception = Assert.assertThrows(IllegalArgumentException.class,
-                () -> Illustrator.execute(canvas, null));
+                () -> Illustrator.illustrate(canvas, null));
 
         String expectedMessage = "Command must not be null";
         String actualMessage = exception.getMessage();
