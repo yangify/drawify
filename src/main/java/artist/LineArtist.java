@@ -3,12 +3,13 @@ package artist;
 import canvas.Canvas;
 import canvas.Point;
 import command.Draw;
+import sketch.Sketch;
 import sketch.line.Line;
 
 public class LineArtist implements Artist {
 
     static void draw(Canvas canvas, Draw draw) {
-        sketch.Sketch sketch = draw.getSketch();
+        Sketch sketch = draw.getSketch();
         drawLine(canvas, (Line) sketch);
     }
 
