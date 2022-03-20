@@ -16,10 +16,10 @@ public class Application {
         Command command = new Placeholder();
         while (!(command instanceof Quit)) {
             try {
+                if (canvas != null) System.out.println(canvas);
                 String rawCommand = prompt();
                 command = CommandFactory.create(rawCommand);
                 execute(command);
-                if (canvas != null) System.out.println(canvas);
             } catch (Exception e) {
                 System.out.println(e.getMessage());
             }
