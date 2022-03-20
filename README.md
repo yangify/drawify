@@ -1,7 +1,23 @@
 # drawify
 A simple console version of a drawing program.
 
+__Versions__
+```
+Java 11
+Maven 3.85
+```
 
+__How to setup__
+```
+mvn clean package
+```
+
+__How to run__
+```
+java -jar <path_to>/drawify.jar
+```
+
+__How to use__
 ```
 Command 	Description
 C w h           Should create a new canvas of width w and height h.
