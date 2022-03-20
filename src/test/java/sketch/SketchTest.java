@@ -15,7 +15,7 @@ public class SketchTest {
         List<String> parameters = null;
         Exception exception = assertThrows(IllegalArgumentException.class, () -> new Sketch(parameters));
 
-        String expectedMessage = "Both start and end coordinates required";
+        String expectedMessage = "Parameters cannot be null";
         String actualMessage = exception.getMessage();
 
         assertEquals(expectedMessage, actualMessage);
@@ -26,22 +26,10 @@ public class SketchTest {
         List<String> parameters = List.of("10");
         Exception exception = assertThrows(IllegalArgumentException.class, () -> new Sketch(parameters));
 
-        String expectedMessage = "Both start and end coordinates required";
+        String expectedMessage = "All points must come in pair";
         String actualMessage = exception.getMessage();
 
         assertEquals(expectedMessage, actualMessage);
-    }
-
-    @Test
-    public void whenParameterExceeds_thenThrowException() {
-        List<String> parameters = List.of("10", "8", "10", "10", "10", "12");
-        Exception exception = assertThrows(IllegalArgumentException.class, () -> new Sketch(parameters));
-
-        String expectedMessage = "Numbers provided exceed requirement, only 2 points required";
-        String actualMessage = exception.getMessage();
-
-        assertEquals(expectedMessage, actualMessage);
-
     }
 
     @Test
@@ -60,12 +48,8 @@ public class SketchTest {
         List<String> parameters = List.of("10", "8", "10", "3");
         Sketch sketch = new Sketch(parameters);
 
-        Point expectedStart = new Point(9, 7);
-        Point actualStart = sketch.getP1();
-        assertEquals(expectedStart, actualStart);
-
-        Point expectedEnd = new Point(9, 2);
-        Point actualEnd = sketch.getP2();
-        assertEquals(expectedEnd, actualEnd);
+        List<Point> expected = List.of(new Point(9, 7), new Point(9, 2));
+        List<Point> actual = sketch.getPoints();
+        assertEquals(expected, actual);
     }
 }

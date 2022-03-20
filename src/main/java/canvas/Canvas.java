@@ -15,7 +15,7 @@ public class Canvas {
     private final int height;
 
     public Canvas(int width, int height) {
-        if (width < 0 || height < 0) throw new IllegalArgumentException("Rows and columns must be positive");
+        if (width < 0 || height < 0) throw new IllegalArgumentException("Width and height must be positive");
         this.width = width;
         this.height = height;
 
@@ -57,10 +57,6 @@ public class Canvas {
 
         if (y < 0) throw new IllegalArgumentException("y should be positive");
         if (y >= height) throw new IllegalArgumentException("y should be less than " + height);
-    }
-
-    public void print() {
-        System.out.println(this);
     }
 
     @Override

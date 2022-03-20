@@ -18,8 +18,7 @@ public class Illustrator {
     }
 
     protected static boolean isExceedCanvas(Canvas canvas, Sketch sketch) {
-        Point[] points =  new Point[]{sketch.getP1(), sketch.getP2()};
-        for (Point point : points) {
+        for (Point point : sketch.getPoints()) {
             if (isExceedCanvas(canvas, point)) return true;
         }
         return false;

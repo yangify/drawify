@@ -43,8 +43,19 @@ public class CreateTest {
     }
 
     @Test
-    public void whenParameterIsNegative_thenThrowException() {
+    public void whenWidthIsNegative_thenThrowException() {
         List<String> parameters = List.of("-10", "8");
+        Exception exception = assertThrows(IllegalArgumentException.class, () -> new Create(parameters));
+
+        String expectedMessage = "Both row and column must be positive digit";
+        String actualMessage = exception.getMessage();
+
+        assertEquals(expectedMessage, actualMessage);
+    }
+
+    @Test
+    public void whenHeightIsNegative_thenThrowException() {
+        List<String> parameters = List.of("10", "-8");
         Exception exception = assertThrows(IllegalArgumentException.class, () -> new Create(parameters));
 
         String expectedMessage = "Both row and column must be positive digit";

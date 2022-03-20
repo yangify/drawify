@@ -1,9 +1,13 @@
 package illustrator;
 
 import canvas.Canvas;
+import command.Command;
+import command.Draw;
+import command.Paint;
 import org.junit.Assert;
 import org.junit.Test;
 import sketch.Sketch;
+import sketch.line.Line;
 
 import java.util.List;
 
@@ -49,5 +53,42 @@ public class IllustratorTest {
         Sketch sketch = new Sketch(List.of("1", "3", "1", "4"));
 
         assertFalse(isExceedCanvas(canvas, sketch));
+    }
+
+    @Test
+    public void whenCommandDraw_thenDraw() {
+        Canvas canvas = new Canvas(5, 5);
+        Sketch sketch = new Line(List.of("1", "1", "3", "1"));
+        Command command = new Draw(sketch);
+        Illustrator.illustrate(canvas, command);
+
+        String expected = "-------\n" +
+                "|xxx  |\n" +
+                "|     |\n" +
+                "|     |\n" +
+                "|     |\n" +
+                "|     |\n" +
+                "-------\n";
+        String actual = canvas.toString();
+
+        assertEquals(expected, actual);
+    }
+
+    @Test
+    public void whenCommandPaint_thenPaint() {
+        Canvas canvas = new Canvas(5, 5);
+        Command command = new Paint(List.of("1", "1", "o"));
+        Illustrator.illustrate(canvas, command);
+
+        String expected = "-------\n" +
+                "|ooooo|\n" +
+                "|ooooo|\n" +
+                "|ooooo|\n" +
+                "|ooooo|\n" +
+                "|ooooo|\n" +
+                "-------\n";
+        String actual = canvas.toString();
+
+        assertEquals(expected, actual);
     }
 }

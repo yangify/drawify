@@ -2,44 +2,37 @@ package sketch;
 
 import canvas.Point;
 
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 public class Sketch {
 
-    protected Point p1;
-    protected Point p2;
+    protected List<Point> points;
 
     public Sketch(List<String> parameters) {
-        if (parameters == null || parameters.size() < 4)
-            throw new IllegalArgumentException("Both start and end coordinates required");
-
-        if (parameters.size() > 4)
-            throw new IllegalArgumentException("Numbers provided exceed requirement, only 2 points required");
+        if (parameters == null) throw new IllegalArgumentException("Parameters cannot be null");
+        if (parameters.isEmpty()) throw new IllegalArgumentException("Parameters cannot be empty");
+        this.points = new ArrayList<>();
 
         try {
-            int x1 = Integer.parseInt(parameters.get(0)) - 1;
-            int y1 = Integer.parseInt(parameters.get(1)) - 1;
-            this.p1 = new Point(x1, y1);
-
-            int x2 = Integer.parseInt(parameters.get(2)) - 1;
-            int y2 = Integer.parseInt(parameters.get(3)) - 1;
-            this.p2 = new Point(x2, y2);
-
+            for (int i = 0; i < parameters.size(); i+=2) {
+                int x = Integer.parseInt(parameters.get(i)) - 1;
+                int y = Integer.parseInt(parameters.get(i + 1)) - 1;
+                points.add(new Point(x, y));
+            }
         } catch (NumberFormatException e) {
             throw new IllegalArgumentException("All points must be digit");
+        } catch (IndexOutOfBoundsException e) {
+            throw new IllegalArgumentException("All points must come in pair");
         }
     }
 
-    public Sketch(Point p1, Point p2) {
-        this.p1 = p1;
-        this.p2 = p2;
+    public Sketch(Point[] points) {
+        this.points = Arrays.asList(points);
     }
 
-    public Point getP1() {
-        return p1;
-    }
-
-    public Point getP2() {
-        return p2;
+    public List<Point> getPoints() {
+        return this.points;
     }
 }

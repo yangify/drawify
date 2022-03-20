@@ -22,7 +22,7 @@ public class DrawTest {
     }
 
     @Test
-    public void whenParameterIsValid_thenReturnFraw() {
+    public void whenParameterIsValid_thenReturnDraw() {
         Line line = new Line(List.of("10", "8", "10", "9"));
         Draw draw = new Draw(line);
         assertNotNull(draw.getSketch());

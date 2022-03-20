@@ -7,16 +7,6 @@ import static org.junit.Assert.*;
 public class CanvasTest {
 
     @Test
-    public void whenInitializingAndParameterNegative_thenThrowException() {
-        Exception exception = assertThrows(IllegalArgumentException.class, () -> new Canvas(-1, 10));
-
-        String expectedMessage = "Rows and columns must be positive";
-        String actualMessage = exception.getMessage();
-
-        assertEquals(expectedMessage, actualMessage);
-    }
-
-    @Test
     public void whenInitializingAndParameterValid_thenReturnCanvas() {
         Canvas canvas = new Canvas(2, 2);
         assertNotNull(canvas);
@@ -36,6 +26,26 @@ public class CanvasTest {
         int expectedCols = canvas.getHeight();
         int actualCols = canvas.getHeight();
         assertEquals(expectedCols, actualCols);
+    }
+
+    @Test
+    public void whenInitializingAndWidthNegative_thenThrowException() {
+        Exception exception = assertThrows(IllegalArgumentException.class, () -> new Canvas(-1, 1));
+
+        String expectedMessage = "Width and height must be positive";
+        String actualMessage = exception.getMessage();
+
+        assertEquals(expectedMessage, actualMessage);
+    }
+
+    @Test
+    public void whenInitializingAndHeightNegative_thenThrowException() {
+        Exception exception = assertThrows(IllegalArgumentException.class, () -> new Canvas(1, -1));
+
+        String expectedMessage = "Width and height must be positive";
+        String actualMessage = exception.getMessage();
+
+        assertEquals(expectedMessage, actualMessage);
     }
 
     @Test

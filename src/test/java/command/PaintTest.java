@@ -65,6 +65,29 @@ public class PaintTest {
         assertEquals(expectedMessage, actualMessage);
     }
 
+
+    @Test
+    public void whenNegativeX_thenThrowException() {
+        List<String> parameters = List.of("-10", "10", "o");
+        Exception exception = assertThrows(IllegalArgumentException.class, () -> new Paint(parameters));
+
+        String expectedMessage = "Both x and y must be positive digit";
+        String actualMessage = exception.getMessage();
+
+        assertEquals(expectedMessage, actualMessage);
+    }
+
+    @Test
+    public void whenNegativeY_thenThrowException() {
+        List<String> parameters = List.of("10", "-10", "o");
+        Exception exception = assertThrows(IllegalArgumentException.class, () -> new Paint(parameters));
+
+        String expectedMessage = "Both x and y must be positive digit";
+        String actualMessage = exception.getMessage();
+
+        assertEquals(expectedMessage, actualMessage);
+    }
+
     @Test
     public void whenParameterIsValid_thenReturnCreate() {
         List<String> parameters = List.of("10", "100", "o");

@@ -8,9 +8,28 @@ import sketch.shape.Rectangle;
 
 import java.util.List;
 
-import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.*;
 
 public class PainterTest {
+
+    @Test
+    public void whenPainter_thenChildOfIllustrator() {
+        Painter painter = new Painter();
+        assertTrue(painter instanceof Illustrator);
+    }
+
+    @Test
+    public void whenPointExceedCanvas_thenThrowException() {
+        Canvas canvas = new Canvas(3, 3);
+        Point point = new Point(4, 4);
+
+        Exception exception = assertThrows(IllegalArgumentException.class, () -> Painter.paint(canvas, point, "o"));
+
+        String expectedMessage = "Point outside of canvas";
+        String actualMessage = exception.getMessage();
+
+        assertEquals(expectedMessage, actualMessage);
+    }
 
     @Test
     public void whenNoObstacle_thenPaintAll() {
@@ -67,6 +86,26 @@ public class PainterTest {
                 "|xxx  |\n" +
                 "|ooox |\n" +
                 "|ooox |\n" +
+                "-------\n";
+        String actual = canvas.toString();
+
+        assertEquals(expected, actual);
+    }
+
+    @Test
+    public void whenPointOnObstacle_thenContinue() {
+        Canvas canvas = new Canvas(5, 5);
+        ShapeArtist.draw(canvas, new Rectangle(List.of("1", "1", "3", "3")));
+
+        Point point1 = new Point(2, 2);
+        Painter.paint(canvas, point1, "o");
+
+        String expected = "-------\n" +
+                "|xxx  |\n" +
+                "|x x  |\n" +
+                "|xxx  |\n" +
+                "|     |\n" +
+                "|     |\n" +
                 "-------\n";
         String actual = canvas.toString();
 
