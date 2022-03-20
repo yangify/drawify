@@ -38,14 +38,14 @@ public class LineArtistTest {
     @Test
     public void whenHorizontalLineValid_thenDrawLine() {
         Canvas canvas = new Canvas(3, 3);
-        Line line = new Line(List.of("0", "0", "0", "2"));
+        Line line = new Line(List.of("1", "1", "1", "3"));
         LineArtist.draw(canvas, line);
 
         String expected =
                 "-----\n" +
-                "|xxx|\n" +
-                "|   |\n" +
-                "|   |\n" +
+                "|x  |\n" +
+                "|x  |\n" +
+                "|x  |\n" +
                 "-----\n";
         String actual = canvas.toString();
 
@@ -55,14 +55,14 @@ public class LineArtistTest {
     @Test
     public void whenVerticalLineValid_thenDrawLine() {
         Canvas canvas = new Canvas(3, 3);
-        Line line = new Line(List.of("0", "0", "2", "0"));
+        Line line = new Line(List.of("1", "1", "3", "1"));
         LineArtist.draw(canvas, line);
 
         String expected =
                 "-----\n" +
-                "|x  |\n" +
-                "|x  |\n" +
-                "|x  |\n" +
+                "|xxx|\n" +
+                "|   |\n" +
+                "|   |\n" +
                 "-----\n";
         String actual = canvas.toString();
 

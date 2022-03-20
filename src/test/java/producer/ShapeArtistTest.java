@@ -38,7 +38,7 @@ public class ShapeArtistTest {
     @Test
     public void whenPoint1BottomLeft_thenDraw() {
         Canvas canvas = new Canvas(5, 5);
-        Shape shape = new Rectangle(List.of("4", "0", "0", "4"));
+        Shape shape = new Rectangle(List.of("5", "1", "1", "5"));
         ShapeArtist.draw(canvas, shape);
 
         String expected = "-------\n" +
@@ -55,7 +55,7 @@ public class ShapeArtistTest {
     @Test
     public void whenPoint1TopRight_thenDraw() {
         Canvas canvas = new Canvas(5, 5);
-        Shape shape = new Rectangle(List.of("0", "4", "4", "0"));
+        Shape shape = new Rectangle(List.of("1", "5", "5", "1"));
         ShapeArtist.draw(canvas, shape);
 
         String expected = "-------\n" +
@@ -72,7 +72,7 @@ public class ShapeArtistTest {
     @Test
     public void whenPoint1TopLeft_thenDraw() {
         Canvas canvas = new Canvas(5, 5);
-        Shape shape = new Rectangle(List.of("0", "0", "4", "4"));
+        Shape shape = new Rectangle(List.of("1", "1", "5", "5"));
         ShapeArtist.draw(canvas, shape);
 
         String expected = "-------\n" +
@@ -89,7 +89,7 @@ public class ShapeArtistTest {
     @Test
     public void whenPoint1BottomRight_thenDraw() {
         Canvas canvas = new Canvas(5, 5);
-        Shape shape = new Rectangle(List.of("4", "4", "0", "0"));
+        Shape shape = new Rectangle(List.of("5", "5", "1", "1"));
         ShapeArtist.draw(canvas, shape);
 
         String expected = "-------\n" +
@@ -106,7 +106,7 @@ public class ShapeArtistTest {
     @Test
     public void whenSinglePoint_thenDraw() {
         Canvas canvas = new Canvas(1, 1);
-        Shape shape = new Rectangle(List.of("0", "0", "0", "0"));
+        Shape shape = new Rectangle(List.of("1", "1", "1", "1"));
         ShapeArtist.draw(canvas, shape);
 
         String expected = "---\n" +

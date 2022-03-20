@@ -17,12 +17,12 @@ public class Sketch {
             throw new IllegalArgumentException("Numbers provided exceed requirement, only 2 points required");
 
         try {
-            int x1 = Integer.parseInt(parameters.get(0));
-            int y1 = Integer.parseInt(parameters.get(1));
+            int x1 = Integer.parseInt(parameters.get(0)) - 1;
+            int y1 = Integer.parseInt(parameters.get(1)) - 1;
             this.p1 = new Point(x1, y1);
 
-            int x2 = Integer.parseInt(parameters.get(2));
-            int y2 = Integer.parseInt(parameters.get(3));
+            int x2 = Integer.parseInt(parameters.get(2)) - 1;
+            int y2 = Integer.parseInt(parameters.get(3)) - 1;
             this.p2 = new Point(x2, y2);
 
         } catch (NumberFormatException e) {

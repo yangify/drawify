@@ -60,11 +60,11 @@ public class SketchTest {
         List<String> parameters = List.of("10", "8", "10", "3");
         Sketch sketch = new Sketch(parameters);
 
-        Point expectedStart = new Point(10, 8);
+        Point expectedStart = new Point(9, 7);
         Point actualStart = sketch.getP1();
         assertEquals(expectedStart, actualStart);
 
-        Point expectedEnd = new Point(10, 3);
+        Point expectedEnd = new Point(9, 2);
         Point actualEnd = sketch.getP2();
         assertEquals(expectedEnd, actualEnd);
     }

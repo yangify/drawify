@@ -49,8 +49,8 @@ public class Canvas {
     }
 
     void validatePoint(Point point) {
-        int x = point.getX() - 1;
-        int y = point.getY() - 1;
+        int x = point.getX();
+        int y = point.getY();
 
         if (x < 0) throw new IllegalArgumentException("x should be positive");
         if (x >= width) throw new IllegalArgumentException("x should be less than " + width);

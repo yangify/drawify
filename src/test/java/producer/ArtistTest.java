@@ -46,7 +46,7 @@ public class ArtistTest {
     @Test
     public void whenSketchWithinCanvas_thenReturnFalse() {
         Canvas canvas = new Canvas(5, 5);
-        Sketch sketch = new Sketch(List.of("0", "3", "0", "4"));
+        Sketch sketch = new Sketch(List.of("1", "3", "1", "4"));
 
         assertFalse(isExceedCanvas(canvas, sketch));
     }
