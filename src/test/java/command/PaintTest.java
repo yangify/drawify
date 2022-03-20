@@ -44,6 +44,28 @@ public class PaintTest {
     }
 
     @Test
+    public void whenValueIsEmpty_thenThrowException() {
+        List<String> parameters = List.of("10", "100", "");
+        Exception exception = assertThrows(IllegalArgumentException.class, () -> new Paint(parameters));
+
+        String expectedMessage = "Value must not be empty";
+        String actualMessage = exception.getMessage();
+
+        assertEquals(expectedMessage, actualMessage);
+    }
+
+    @Test
+    public void whenValueIsLong_thenThrowException() {
+        List<String> parameters = List.of("10", "100", "abc");
+        Exception exception = assertThrows(IllegalArgumentException.class, () -> new Paint(parameters));
+
+        String expectedMessage = "Value must be a single char";
+        String actualMessage = exception.getMessage();
+
+        assertEquals(expectedMessage, actualMessage);
+    }
+
+    @Test
     public void whenParameterIsValid_thenReturnCreate() {
         List<String> parameters = List.of("10", "100", "o");
         Paint paint = new Paint(parameters);

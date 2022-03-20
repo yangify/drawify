@@ -22,6 +22,9 @@ public class Paint implements Command {
             throw new IllegalArgumentException("Both x and y must be positive digit");
         }
 
+        String value = parameters.get(2);
+        if (value.isEmpty()) throw new IllegalArgumentException("Value must not be empty");
+        if (value.length() > 1) throw new IllegalArgumentException("Value must be a single char");
         this.value = parameters.get(2);
     }
 
