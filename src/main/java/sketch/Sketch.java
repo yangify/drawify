@@ -1,7 +1,6 @@
 package sketch;
 
 import canvas.Point;
-import exception.InvalidParameterException;
 
 import java.util.List;
 
@@ -12,10 +11,10 @@ public class Sketch {
 
     public Sketch(List<String> parameters) {
         if (parameters == null || parameters.size() < 4)
-            throw new InvalidParameterException("Both start and end coordinates required");
+            throw new IllegalArgumentException("Both start and end coordinates required");
 
         if (parameters.size() > 4)
-            throw new InvalidParameterException("Numbers provided exceed requirement, only 2 points required");
+            throw new IllegalArgumentException("Numbers provided exceed requirement, only 2 points required");
 
         try {
             int x1 = Integer.parseInt(parameters.get(0));
@@ -27,7 +26,7 @@ public class Sketch {
             this.p2 = new Point(x2, y2);
 
         } catch (NumberFormatException e) {
-            throw new InvalidParameterException("All points must be digit");
+            throw new IllegalArgumentException("All points must be digit");
         }
     }
 

@@ -1,7 +1,6 @@
 package command;
 
 import canvas.Point;
-import exception.InvalidParameterException;
 
 import java.util.List;
 
@@ -11,7 +10,7 @@ public class Paint implements Command {
 
     public Paint(List<String> parameters) {
         if (parameters == null || parameters.size() < 2)
-            throw new InvalidParameterException("Both x and y is required");
+            throw new IllegalArgumentException("Both x and y is required");
 
         try {
             int x = Integer.parseInt(parameters.get(0));
@@ -19,7 +18,7 @@ public class Paint implements Command {
             if (x < 0 || y < 0) throw new NumberFormatException();
             this.point = new Point(x, y);
         } catch (NumberFormatException e) {
-            throw new InvalidParameterException("Both x and y must be positive digit");
+            throw new IllegalArgumentException("Both x and y must be positive digit");
         }
     }
 

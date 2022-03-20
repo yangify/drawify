@@ -1,7 +1,6 @@
 package sketch;
 
 import canvas.Point;
-import exception.InvalidParameterException;
 import org.junit.Test;
 
 import java.util.List;
@@ -14,7 +13,7 @@ public class SketchTest {
     @Test
     public void whenParameterIsNull_thenThrowException() {
         List<String> parameters = null;
-        Exception exception = assertThrows(InvalidParameterException.class, () -> new Sketch(parameters));
+        Exception exception = assertThrows(IllegalArgumentException.class, () -> new Sketch(parameters));
 
         String expectedMessage = "Both start and end coordinates required";
         String actualMessage = exception.getMessage();
@@ -25,7 +24,7 @@ public class SketchTest {
     @Test
     public void whenParameterIsInsufficient_thenThrowException() {
         List<String> parameters = List.of("10");
-        Exception exception = assertThrows(InvalidParameterException.class, () -> new Sketch(parameters));
+        Exception exception = assertThrows(IllegalArgumentException.class, () -> new Sketch(parameters));
 
         String expectedMessage = "Both start and end coordinates required";
         String actualMessage = exception.getMessage();
@@ -36,7 +35,7 @@ public class SketchTest {
     @Test
     public void whenParameterExceeds_thenThrowException() {
         List<String> parameters = List.of("10", "8", "10", "10", "10", "12");
-        Exception exception = assertThrows(InvalidParameterException.class, () -> new Sketch(parameters));
+        Exception exception = assertThrows(IllegalArgumentException.class, () -> new Sketch(parameters));
 
         String expectedMessage = "Numbers provided exceed requirement, only 2 points required";
         String actualMessage = exception.getMessage();
@@ -48,7 +47,7 @@ public class SketchTest {
     @Test
     public void whenParameterIsWord_thenThrowException() {
         List<String> parameters = List.of("10", "eight", "15", "15");
-        Exception exception = assertThrows(InvalidParameterException.class, () -> new Sketch(parameters));
+        Exception exception = assertThrows(IllegalArgumentException.class, () -> new Sketch(parameters));
 
         String expectedMessage = "All points must be digit";
         String actualMessage = exception.getMessage();

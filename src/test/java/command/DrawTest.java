@@ -1,6 +1,5 @@
 package command;
 
-import exception.InvalidParameterException;
 import org.junit.Test;
 import sketch.Sketch;
 import sketch.line.Line;
@@ -14,7 +13,7 @@ public class DrawTest {
     @Test
     public void whenParameterIsNull_thenThrowException() {
         Sketch sketch = null;
-        Exception exception = assertThrows(InvalidParameterException.class, () -> new Draw(sketch));
+        Exception exception = assertThrows(IllegalArgumentException.class, () -> new Draw(sketch));
 
         String expectedMessage = "Sketch must not be null";
         String actualMessage = exception.getMessage();

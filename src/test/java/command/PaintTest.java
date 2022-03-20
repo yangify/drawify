@@ -1,7 +1,6 @@
 package command;
 
 import canvas.Point;
-import exception.InvalidParameterException;
 import org.junit.Test;
 
 import java.util.List;
@@ -14,7 +13,7 @@ public class PaintTest {
     @Test
     public void whenParameterIsNull_thenThrowException() {
         List<String> parameters = null;
-        Exception exception = assertThrows(InvalidParameterException.class, () -> new Paint(parameters));
+        Exception exception = assertThrows(IllegalArgumentException.class, () -> new Paint(parameters));
 
         String expectedMessage = "Both x and y is required";
         String actualMessage = exception.getMessage();
@@ -25,7 +24,7 @@ public class PaintTest {
     @Test
     public void whenParameterIsInsufficient_thenThrowException() {
         List<String> parameters = List.of("10");
-        Exception exception = assertThrows(InvalidParameterException.class, () -> new Paint(parameters));
+        Exception exception = assertThrows(IllegalArgumentException.class, () -> new Paint(parameters));
 
         String expectedMessage = "Both x and y is required";
         String actualMessage = exception.getMessage();
@@ -36,7 +35,7 @@ public class PaintTest {
     @Test
     public void whenParameterIsWord_thenThrowException() {
         List<String> parameters = List.of("ten", "eight");
-        Exception exception = assertThrows(InvalidParameterException.class, () -> new Paint(parameters));
+        Exception exception = assertThrows(IllegalArgumentException.class, () -> new Paint(parameters));
 
         String expectedMessage = "Both x and y must be positive digit";
         String actualMessage = exception.getMessage();
@@ -47,7 +46,7 @@ public class PaintTest {
     @Test
     public void whenParameterIsNegative_thenThrowException() {
         List<String> parameters = List.of("-10", "8");
-        Exception exception = assertThrows(InvalidParameterException.class, () -> new Paint(parameters));
+        Exception exception = assertThrows(IllegalArgumentException.class, () -> new Paint(parameters));
 
         String expectedMessage = "Both x and y must be positive digit";
         String actualMessage = exception.getMessage();
