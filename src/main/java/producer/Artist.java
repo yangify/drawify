@@ -2,7 +2,6 @@ package producer;
 
 import canvas.Canvas;
 import canvas.Point;
-import command.Draw;
 import sketch.Sketch;
 import sketch.line.Line;
 import sketch.shape.Shape;
@@ -11,11 +10,10 @@ public class Artist {
 
     static String VALUE = "x";
 
-    static void draw(Canvas canvas, Draw command) {
+    static void draw(Canvas canvas, Sketch sketch) {
         if (canvas == null) throw new IllegalArgumentException("Canvas must not be null");
-        if (command == null) throw new IllegalArgumentException("Command must not be null");
+        if (sketch == null) throw new IllegalArgumentException("Sketch must not be null");
 
-        Sketch sketch = command.getSketch();
         delegate(canvas, sketch);
     }
 
