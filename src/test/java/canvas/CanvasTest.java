@@ -25,7 +25,7 @@ public class CanvasTest {
     @Test
     public void whenInitializingAndParameterValid_thenReturnValidRows() {
         Canvas canvas = new Canvas(2, 2);
-        int expectedRows = canvas.getRows();
+        int expectedRows = canvas.getWidth();
         int actualRows = 2;
         assertEquals(expectedRows, actualRows);
     }
@@ -33,8 +33,8 @@ public class CanvasTest {
     @Test
     public void whenInitializingAndParameterValid_thenReturnValidColumns() {
         Canvas canvas = new Canvas(2, 2);
-        int expectedCols = canvas.getColumns();
-        int actualCols = canvas.getColumns();
+        int expectedCols = canvas.getHeight();
+        int actualCols = canvas.getHeight();
         assertEquals(expectedCols, actualCols);
     }
 

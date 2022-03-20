@@ -25,8 +25,8 @@ public class Artist {
     }
 
     static boolean isExceedCanvas(Canvas canvas, Sketch sketch) {
-        int rows = canvas.getRows();
-        int cols = canvas.getColumns();
+        int rows = canvas.getWidth();
+        int cols = canvas.getHeight();
 
         Point[] points =  new Point[]{sketch.getP1(), sketch.getP2()};
         for (Point point : points) {

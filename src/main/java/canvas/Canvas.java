@@ -11,52 +11,52 @@ public class Canvas {
     private String leftBorder = "|";
     private String rightBorder = "|";
 
-    private final int rows;
-    private final int columns;
+    private final int width;
+    private final int height;
 
-    public Canvas(int rows, int columns) {
-        if (rows < 0 || columns < 0) throw new IllegalArgumentException("Rows and columns must be positive");
-        this.rows = rows;
-        this.columns = columns;
+    public Canvas(int width, int height) {
+        if (width < 0 || height < 0) throw new IllegalArgumentException("Rows and columns must be positive");
+        this.width = width;
+        this.height = height;
 
-        this.topBorder = this.topBorder.repeat(columns + 2);
-        this.bottomBorder = this.bottomBorder.repeat(columns + 2);
+        this.topBorder = this.topBorder.repeat(width + 2);
+        this.bottomBorder = this.bottomBorder.repeat(width + 2);
 
-        this.board = new String[rows][columns];
+        this.board = new String[height][width];
         for (String[] row: this.board) Arrays.fill(row, " ");
     }
 
-    public int getRows() {
-        return this.rows;
+    public int getWidth() {
+        return this.width;
     }
 
-    public int getColumns() {
-        return this.columns;
+    public int getHeight() {
+        return this.height;
     }
 
     public String getPoint(Point point) {
         validatePoint(point);
         int x = point.getX();
         int y = point.getY();
-        return this.board[x][y];
+        return this.board[y][x];
     }
 
     public void setPoint(Point point, String value) {
         validatePoint(point);
         int x = point.getX();
         int y = point.getY();
-        this.board[x][y] = value;
+        this.board[y][x] = value;
     }
 
     void validatePoint(Point point) {
-        int x = point.getX();
-        int y = point.getY();
+        int x = point.getX() - 1;
+        int y = point.getY() - 1;
 
         if (x < 0) throw new IllegalArgumentException("x should be positive");
-        if (x >= rows) throw new IllegalArgumentException("x should be less than " + rows);
+        if (x >= width) throw new IllegalArgumentException("x should be less than " + width);
 
         if (y < 0) throw new IllegalArgumentException("y should be positive");
-        if (y >= columns) throw new IllegalArgumentException("y should be less than " + columns);
+        if (y >= height) throw new IllegalArgumentException("y should be less than " + height);
     }
 
     public void print() {

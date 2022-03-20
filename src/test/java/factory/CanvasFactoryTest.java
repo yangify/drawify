@@ -27,12 +27,18 @@ public class CanvasFactoryTest {
         Canvas canvas = CanvasFactory.execute(command);
         assertNotNull(canvas);
 
-        int expectedRows = 10;
-        int actualRows = canvas.getRows();
-        assertEquals(expectedRows, actualRows);
+        String expected = "------------\n" +
+                "|          |\n" +
+                "|          |\n" +
+                "|          |\n" +
+                "|          |\n" +
+                "|          |\n" +
+                "|          |\n" +
+                "|          |\n" +
+                "|          |\n" +
+                "------------\n";
+        String actual = canvas.toString();
 
-        int expectedCols = 8;
-        int actualCols = 8;
-        assertEquals(expectedCols, actualCols);
+        assertEquals(expected, actual);
     }
 }
