@@ -1,9 +1,9 @@
-package producer;
+package illustrator;
 
 import canvas.Canvas;
 import canvas.Point;
 
-public class Painter extends Producer {
+public class Painter extends Illustrator {
 
     public static void paint(Canvas canvas, Point point) {
 

@@ -1,4 +1,4 @@
-package producer;
+package illustrator;
 
 import canvas.Canvas;
 import canvas.Point;

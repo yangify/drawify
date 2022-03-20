@@ -1,4 +1,4 @@
-package producer;
+package illustrator;
 
 import canvas.Canvas;
 import org.junit.Assert;
@@ -8,14 +8,14 @@ import sketch.Sketch;
 import java.util.List;
 
 import static org.junit.Assert.*;
-import static producer.Producer.isExceedCanvas;
+import static illustrator.Illustrator.isExceedCanvas;
 
-public class ProducerTest {
+public class IllustratorTest {
 
     @Test
     public void whenExecutingAndCanvasNull_thenThrowException() {
         Exception exception = Assert.assertThrows(IllegalArgumentException.class,
-                () -> Producer.execute(null, null));
+                () -> Illustrator.execute(null, null));
 
         String expectedMessage = "Canvas must not be null";
         String actualMessage = exception.getMessage();
@@ -27,7 +27,7 @@ public class ProducerTest {
     public void whenExecutingAndCommandNull_thenThrowException() {
         Canvas canvas = new Canvas(5, 5);
         Exception exception = Assert.assertThrows(IllegalArgumentException.class,
-                () -> Producer.execute(canvas, null));
+                () -> Illustrator.execute(canvas, null));
 
         String expectedMessage = "Command must not be null";
         String actualMessage = exception.getMessage();

@@ -1,4 +1,4 @@
-import producer.Producer;
+import illustrator.Illustrator;
 import canvas.Canvas;
 import command.*;
 import factory.CanvasFactory;
@@ -28,7 +28,7 @@ public class Application {
 
     public static void execute(Command command) {
         if (command instanceof Create) canvas = CanvasFactory.execute((Create) command);
-        Producer.execute(canvas, command);
+        Illustrator.execute(canvas, command);
     }
 
     public static String prompt() {

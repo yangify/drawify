@@ -1,4 +1,4 @@
-package producer;
+package illustrator;
 
 import canvas.Canvas;
 import canvas.Point;
@@ -7,7 +7,7 @@ import command.Draw;
 import command.Paint;
 import sketch.Sketch;
 
-public class Producer {
+public class Illustrator {
 
     public static void execute(Canvas canvas, Command command) {
         if (canvas == null) throw new IllegalArgumentException("Canvas must not be null");

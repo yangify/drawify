@@ -1,11 +1,11 @@
-package producer;
+package illustrator;
 
 import canvas.Canvas;
 import sketch.Sketch;
 import sketch.line.Line;
 import sketch.shape.Shape;
 
-public class Artist extends Producer {
+public class Artist extends Illustrator {
 
     static String VALUE = "x";
 
