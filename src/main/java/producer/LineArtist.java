@@ -23,8 +23,6 @@ public class LineArtist implements Artist {
             Point end = p1.getX() > p2.getX() ? p1 : p2;
             drawVerticalLine(canvas, start, end);
         }
-
-        canvas.print();
     }
 
     private static void drawHorizontalLine(Canvas canvas, Point start, Point end) {
