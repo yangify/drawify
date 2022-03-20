@@ -1,4 +1,4 @@
-package artist;
+package producer;
 
 import canvas.Canvas;
 import org.junit.Assert;
@@ -9,12 +9,12 @@ import java.util.List;
 
 import static org.junit.Assert.*;
 
-public class ArtistTest {
+public class ProducerTest {
 
     @Test
     public void whenExecutingAndCanvasNull_thenThrowException() {
         Exception exception = Assert.assertThrows(IllegalArgumentException.class,
-                () -> Artist.execute(null, null));
+                () -> Producer.execute(null, null));
 
         String expectedMessage = "Canvas must not be null";
         String actualMessage = exception.getMessage();
@@ -26,7 +26,7 @@ public class ArtistTest {
     public void whenExecutingAndCommandNull_thenThrowException() {
         Canvas canvas = new Canvas(5, 5);
         Exception exception = Assert.assertThrows(IllegalArgumentException.class,
-                () -> Artist.execute(canvas, null));
+                () -> Producer.execute(canvas, null));
 
         String expectedMessage = "Command must not be null";
         String actualMessage = exception.getMessage();
@@ -39,7 +39,7 @@ public class ArtistTest {
         Canvas canvas = new Canvas(5, 5);
         Sketch sketch = new Sketch(List.of("0", "3", "0", "5"));
 
-        assertTrue(Artist.isExceedCanvas(canvas, sketch));
+        assertTrue(Producer.isExceedCanvas(canvas, sketch));
     }
 
     @Test
@@ -47,6 +47,6 @@ public class ArtistTest {
         Canvas canvas = new Canvas(5, 5);
         Sketch sketch = new Sketch(List.of("0", "3", "0", "4"));
 
-        assertFalse(Artist.isExceedCanvas(canvas, sketch));
+        assertFalse(Producer.isExceedCanvas(canvas, sketch));
     }
 }

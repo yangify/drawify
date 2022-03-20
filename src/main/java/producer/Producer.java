@@ -1,4 +1,4 @@
-package artist;
+package producer;
 
 import canvas.Canvas;
 import canvas.Point;
@@ -6,7 +6,7 @@ import command.Command;
 import command.Draw;
 import sketch.Sketch;
 
-public interface Artist {
+public interface Producer {
 
     String VALUE = "x";
 

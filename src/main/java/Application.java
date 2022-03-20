@@ -1,4 +1,4 @@
-import artist.Artist;
+import producer.Producer;
 import canvas.Canvas;
 import command.*;
 import factory.CanvasFactory;
@@ -29,8 +29,8 @@ public class Application {
 
     public static void execute(Command command) {
         if (command instanceof Create) canvas = CanvasFactory.execute((Create) command);
-        if (command instanceof Draw) Artist.execute(canvas, command);
-        if (command instanceof Paint) Artist.execute(canvas, command);
+        if (command instanceof Draw) Producer.execute(canvas, command);
+        if (command instanceof Paint) Producer.execute(canvas, command);
     }
 
     public static void prompt() {

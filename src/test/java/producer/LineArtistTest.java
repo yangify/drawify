@@ -1,4 +1,4 @@
-package artist;
+package producer;
 
 import canvas.Canvas;
 import command.Draw;
