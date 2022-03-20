@@ -8,17 +8,15 @@ import java.util.Scanner;
 
 public class Application {
 
-    private static Canvas canvas;
+    static Scanner scanner = new Scanner(System.in);
+    static Canvas canvas;
 
     public static void main(String[] args) {
 
-        Scanner scanner = new Scanner(System.in);
         Command command = new Placeholder();
-
         while (!(command instanceof Quit)) {
             try {
-                prompt();
-                String rawCommand = scanner.nextLine();
+                String rawCommand = prompt();
                 command = CommandFactory.create(rawCommand);
                 execute(command);
             } catch (Exception e) {
@@ -33,7 +31,8 @@ public class Application {
         if (command instanceof Paint) Producer.execute(canvas, command);
     }
 
-    public static void prompt() {
+    public static String prompt() {
         System.out.print("enter command: ");
+        return scanner.nextLine();
     }
 }
