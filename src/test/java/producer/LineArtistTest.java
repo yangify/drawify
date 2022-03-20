@@ -1,6 +1,7 @@
 package producer;
 
 import canvas.Canvas;
+import org.junit.Assert;
 import org.junit.Test;
 import sketch.line.Line;
 
@@ -10,6 +11,29 @@ import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertThrows;
 
 public class LineArtistTest {
+
+    @Test
+    public void whenDrawingAndCanvasNull_thenThrowException() {
+        Exception exception = Assert.assertThrows(IllegalArgumentException.class,
+                () -> LineArtist.draw(null, (Line) null));
+
+        String expectedMessage = "Canvas must not be null";
+        String actualMessage = exception.getMessage();
+
+        assertEquals(expectedMessage, actualMessage);
+    }
+
+    @Test
+    public void whenDrawingAndCommandNull_thenThrowException() {
+        Canvas canvas = new Canvas(5, 5);
+        Exception exception = Assert.assertThrows(IllegalArgumentException.class,
+                () -> LineArtist.draw(canvas, (Line) null));
+
+        String expectedMessage = "Line must not be null";
+        String actualMessage = exception.getMessage();
+
+        assertEquals(expectedMessage, actualMessage);
+    }
 
     @Test
     public void whenHorizontalLineValid_thenDrawLine() {

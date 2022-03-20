@@ -4,10 +4,12 @@ import canvas.Canvas;
 import canvas.Point;
 import sketch.line.Line;
 
-public class LineArtist implements Artist {
+public class LineArtist extends Artist {
 
     static void draw(Canvas canvas, Line line) {
-        if (Producer.isExceedCanvas(canvas, line)) throw new IllegalArgumentException("Line exceeds canvas size");
+        if (canvas == null) throw new IllegalArgumentException("Canvas must not be null");
+        if (line == null) throw new IllegalArgumentException("Line must not be null");
+        if (isExceedCanvas(canvas, line)) throw new IllegalArgumentException("Line exceeds canvas size");
 
         Point p1 = line.getP1();
         Point p2 = line.getP2();

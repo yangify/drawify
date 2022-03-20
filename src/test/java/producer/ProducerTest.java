@@ -33,20 +33,4 @@ public class ProducerTest {
 
         assertEquals(expectedMessage, actualMessage);
     }
-
-    @Test
-    public void whenSketchExceedsCanvas_thenReturnTrue() {
-        Canvas canvas = new Canvas(5, 5);
-        Sketch sketch = new Sketch(List.of("0", "3", "0", "5"));
-
-        assertTrue(Producer.isExceedCanvas(canvas, sketch));
-    }
-
-    @Test
-    public void whenSketchWithinCanvas_thenReturnFalse() {
-        Canvas canvas = new Canvas(5, 5);
-        Sketch sketch = new Sketch(List.of("0", "3", "0", "4"));
-
-        assertFalse(Producer.isExceedCanvas(canvas, sketch));
-    }
 }
