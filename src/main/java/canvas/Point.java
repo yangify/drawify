@@ -20,6 +20,12 @@ public class Point {
         return y;
     }
 
+    public boolean isBefore(Point that) {
+        if (this.y == that.y && this.x < that.x) return true;
+        if (this.x == that.x && this.y < that.y) return true;
+        return this.x < that.x && this.y < that.y;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (o == this) return true;
