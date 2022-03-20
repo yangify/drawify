@@ -1,9 +1,11 @@
 package producer;
 
 import canvas.Canvas;
+import canvas.Point;
 import command.Command;
 import command.Draw;
 import command.Paint;
+import sketch.Sketch;
 
 public class Producer {
 
@@ -13,5 +15,19 @@ public class Producer {
 
         if (command instanceof Draw) Artist.draw(canvas, ((Draw) command).getSketch());
         if (command instanceof Paint) Painter.paint(canvas, ((Paint) command).getPoint());
+    }
+
+    protected static boolean isExceedCanvas(Canvas canvas, Sketch sketch) {
+        Point[] points =  new Point[]{sketch.getP1(), sketch.getP2()};
+        for (Point point : points) {
+            if (isExceedCanvas(canvas, point)) return true;
+        }
+        return false;
+    }
+
+    protected static boolean isExceedCanvas(Canvas canvas, Point point) {
+        int x = point.getX();
+        int y = point.getY();
+        return x < 0 || x >= canvas.getWidth() || y < 0 || y >= canvas.getHeight();
     }
 }

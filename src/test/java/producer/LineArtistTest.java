@@ -15,7 +15,7 @@ public class LineArtistTest {
     @Test
     public void whenDrawingAndCanvasNull_thenThrowException() {
         Exception exception = Assert.assertThrows(IllegalArgumentException.class,
-                () -> LineArtist.draw(null, (Line) null));
+                () -> LineArtist.draw(null, null));
 
         String expectedMessage = "Canvas must not be null";
         String actualMessage = exception.getMessage();
@@ -27,7 +27,7 @@ public class LineArtistTest {
     public void whenDrawingAndCommandNull_thenThrowException() {
         Canvas canvas = new Canvas(5, 5);
         Exception exception = Assert.assertThrows(IllegalArgumentException.class,
-                () -> LineArtist.draw(canvas, (Line) null));
+                () -> LineArtist.draw(canvas, null));
 
         String expectedMessage = "Line must not be null";
         String actualMessage = exception.getMessage();

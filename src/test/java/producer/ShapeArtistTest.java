@@ -15,7 +15,7 @@ public class ShapeArtistTest {
     @Test
     public void whenDrawingAndCanvasNull_thenThrowException() {
         Exception exception = Assert.assertThrows(IllegalArgumentException.class,
-                () -> ShapeArtist.draw(null, (Shape) null));
+                () -> ShapeArtist.draw(null, null));
 
         String expectedMessage = "Canvas must not be null";
         String actualMessage = exception.getMessage();
@@ -27,7 +27,7 @@ public class ShapeArtistTest {
     public void whenDrawingAndCommandNull_thenThrowException() {
         Canvas canvas = new Canvas(5, 5);
         Exception exception = Assert.assertThrows(IllegalArgumentException.class,
-                () -> ShapeArtist.draw(canvas, (Shape) null));
+                () -> ShapeArtist.draw(canvas, null));
 
         String expectedMessage = "Shape must not be null";
         String actualMessage = exception.getMessage();
