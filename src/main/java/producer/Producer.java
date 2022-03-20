@@ -3,6 +3,7 @@ package producer;
 import canvas.Canvas;
 import command.Command;
 import command.Draw;
+import command.Paint;
 
 public class Producer {
 
@@ -11,5 +12,6 @@ public class Producer {
         if (command == null) throw new IllegalArgumentException("Command must not be null");
 
         if (command instanceof Draw) Artist.draw(canvas, ((Draw) command).getSketch());
+        if (command instanceof Paint) Painter.paint(canvas, ((Paint) command).getPoint());
     }
 }
