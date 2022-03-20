@@ -7,9 +7,10 @@ import sketch.line.Line;
 public class LineArtist implements Artist {
 
     static void draw(Canvas canvas, Line line) {
+        if (Producer.isExceedCanvas(canvas, line)) throw new IllegalArgumentException("Line exceeds canvas size");
+
         Point p1 = line.getP1();
         Point p2 = line.getP2();
-        if (Producer.isExceedCanvas(canvas, line)) throw new IllegalArgumentException("Line exceeds canvas size");
 
         if (p1.getX() == p2.getX()) {
             Point start = p1.getY() < p2.getY() ? p1 : p2;
