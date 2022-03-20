@@ -59,11 +59,11 @@ public class CreateTest {
         Create create = new Create(parameters);
 
         int expectedRows = 10;
-        int actualRows = create.getRows();
+        int actualRows = create.getWidth();
         assertEquals(expectedRows, actualRows);
 
         int expectedColumns = 100;
-        int actualColumns = create.getColumns();
+        int actualColumns = create.getHeight();
         assertEquals(expectedColumns, actualColumns);
     }
 }
