@@ -16,7 +16,7 @@ public abstract class Shape extends Sketch {
             throw new IllegalArgumentException("Both start and end coordinates required");
 
         if (points.size() > 2)
-            throw new IllegalArgumentException("Numbers provided exceed requirement, only 2 points required");
+            throw new IllegalArgumentException("Points provided exceed requirement, only 2 points required");
 
         this.p1 = points.get(0);
         this.p2 = points.get(1);

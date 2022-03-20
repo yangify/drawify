@@ -3,6 +3,7 @@ package sketch;
 import canvas.Point;
 import org.junit.Test;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import static org.junit.Assert.assertEquals;
@@ -16,6 +17,17 @@ public class SketchTest {
         Exception exception = assertThrows(IllegalArgumentException.class, () -> new Sketch(parameters));
 
         String expectedMessage = "Parameters cannot be null";
+        String actualMessage = exception.getMessage();
+
+        assertEquals(expectedMessage, actualMessage);
+    }
+
+    @Test
+    public void whenParameterIsEmpty_thenThrowException() {
+        List<String> parameters = new ArrayList<>();
+        Exception exception = assertThrows(IllegalArgumentException.class, () -> new Sketch(parameters));
+
+        String expectedMessage = "Parameters cannot be empty";
         String actualMessage = exception.getMessage();
 
         assertEquals(expectedMessage, actualMessage);

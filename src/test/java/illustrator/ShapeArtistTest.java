@@ -26,6 +26,20 @@ public class ShapeArtistTest {
     @Test
     public void whenDrawingAndCommandNull_thenThrowException() {
         Canvas canvas = new Canvas(5, 5);
+        Shape shape = new Rectangle(List.of("6", "6", "1", "1"));
+        Exception exception = Assert.assertThrows(IllegalArgumentException.class,
+                () -> ShapeArtist.draw(canvas, shape));
+
+        String expectedMessage = "Shape exceeds out of canvas";
+        String actualMessage = exception.getMessage();
+
+        assertEquals(expectedMessage, actualMessage);
+    }
+
+    @Test
+    public void whenDrawingAndShapeExceed_thenThrowException() {
+        Canvas canvas = new Canvas(5, 5);
+
         Exception exception = Assert.assertThrows(IllegalArgumentException.class,
                 () -> ShapeArtist.draw(canvas, null));
 
