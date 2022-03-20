@@ -2,18 +2,11 @@ package producer;
 
 import canvas.Canvas;
 import canvas.Point;
-import command.Draw;
-import sketch.Sketch;
 import sketch.line.Line;
 
-public class LineArtist extends Artist {
+public class LineArtist implements Artist {
 
-    static void draw(Canvas canvas, Draw draw) {
-        Sketch sketch = draw.getSketch();
-        drawLine(canvas, (Line) sketch);
-    }
-
-    private static void drawLine(Canvas canvas, Line line) {
+    static void draw(Canvas canvas, Line line) {
         Point p1 = line.getP1();
         Point p2 = line.getP2();
         if (Producer.isExceedCanvas(canvas, line)) throw new IllegalArgumentException("Line exceeds canvas size");

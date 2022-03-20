@@ -14,7 +14,7 @@ public interface Producer {
         if (canvas == null) throw new IllegalArgumentException("Canvas must not be null");
         if (command == null) throw new IllegalArgumentException("Command must not be null");
 
-        if (command instanceof Draw) LineArtist.draw(canvas, (Draw) command);
+        if (command instanceof Draw) Artist.draw(canvas, (Draw) command);
     }
 
     static boolean isExceedCanvas(Canvas canvas, Sketch sketch) {
