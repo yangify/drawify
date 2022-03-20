@@ -8,8 +8,6 @@ import sketch.Sketch;
 
 public interface Producer {
 
-    String VALUE = "x";
-
     static void execute(Canvas canvas, Command command) {
         if (canvas == null) throw new IllegalArgumentException("Canvas must not be null");
         if (command == null) throw new IllegalArgumentException("Command must not be null");

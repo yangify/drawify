@@ -8,6 +8,8 @@ import sketch.shape.Shape;
 
 public interface Artist extends Producer {
 
+    String VALUE = "x";
+
     static void draw(Canvas canvas, Draw command) {
         Sketch sketch = command.getSketch();
         if (sketch instanceof Line) LineArtist.draw(canvas, (Line) sketch);
