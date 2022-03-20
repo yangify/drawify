@@ -7,9 +7,7 @@ import java.util.*;
 
 public class Painter extends Illustrator {
 
-    private static final String VALUE = "o";
-
-    public static void paint(Canvas canvas, Point point) {
+    public static void paint(Canvas canvas, Point point, String value) {
         if (isExceedCanvas(canvas, point)) throw new IllegalArgumentException("Point outside of canvas");
 
         Set<Point> visited = new HashSet<>();
@@ -21,7 +19,7 @@ public class Painter extends Illustrator {
             if (visited.contains(p) || !canvas.getPoint(p).equals(" ")) continue;
 
             visited.add(p);
-            canvas.setPoint(p, VALUE);
+            canvas.setPoint(p, value);
 
             int x = p.getX();
             int y = p.getY();

@@ -16,7 +16,7 @@ public class PainterTest {
     public void whenNoObstacle_thenPaintAll() {
         Canvas canvas = new Canvas(5, 5);
         Point point = new Point(2, 2);
-        Painter.paint(canvas, point);
+        Painter.paint(canvas, point, "o");
 
         String expected = "-------\n" +
                 "|ooooo|\n" +
@@ -35,7 +35,7 @@ public class PainterTest {
         Canvas canvas = new Canvas(5, 5);
         ShapeArtist.draw(canvas, new Rectangle(List.of("1", "1", "3", "3")));
         Point point = new Point(4, 4);
-        Painter.paint(canvas, point);
+        Painter.paint(canvas, point, "o");
 
         String expected = "-------\n" +
                 "|xxxoo|\n" +
@@ -56,10 +56,10 @@ public class PainterTest {
         LineArtist.draw(canvas, new Line(List.of("4", "4", "4", "5")));
 
         Point point1 = new Point(1, 1);
-        Painter.paint(canvas, point1);
+        Painter.paint(canvas, point1, "o");
 
         Point point2 = new Point(0, 3);
-        Painter.paint(canvas, point2);
+        Painter.paint(canvas, point2, "o");
 
         String expected = "-------\n" +
                 "|xxx  |\n" +

@@ -14,7 +14,7 @@ public class Illustrator {
         if (command == null) throw new IllegalArgumentException("Command must not be null");
 
         if (command instanceof Draw) Artist.draw(canvas, ((Draw) command).getSketch());
-        if (command instanceof Paint) Painter.paint(canvas, ((Paint) command).getPoint());
+        if (command instanceof Paint) Painter.paint(canvas, ((Paint) command).getPoint(), ((Paint) command).getValue());
     }
 
     protected static boolean isExceedCanvas(Canvas canvas, Sketch sketch) {
