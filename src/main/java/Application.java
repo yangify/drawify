@@ -19,7 +19,7 @@ public class Application {
                 String rawCommand = prompt();
                 command = CommandFactory.create(rawCommand);
                 execute(command);
-                canvas.print();
+                if (canvas != null) canvas.print();
             } catch (Exception e) {
                 System.out.println(e.getMessage());
             }
