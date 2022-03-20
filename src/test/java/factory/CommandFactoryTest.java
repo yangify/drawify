@@ -52,7 +52,7 @@ public class CommandFactoryTest {
 
     @Test
     public void whenPaintCommandValid_returnsPaint() {
-        String rawCommand = "B 1 1";
+        String rawCommand = "B 1 1 o";
         Command create = CommandFactory.create(rawCommand);
         assert create != null;
         assertEquals(create.getClass(), Paint.class);
