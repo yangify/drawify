@@ -7,10 +7,11 @@ import java.util.List;
 public class Paint implements Command {
 
     private final Point point;
+    private final String value;
 
     public Paint(List<String> parameters) {
-        if (parameters == null || parameters.size() < 2)
-            throw new IllegalArgumentException("Both x and y is required");
+        if (parameters == null || parameters.size() < 3)
+            throw new IllegalArgumentException("Both point and value is required");
 
         try {
             int x = Integer.parseInt(parameters.get(0));
@@ -20,9 +21,15 @@ public class Paint implements Command {
         } catch (NumberFormatException e) {
             throw new IllegalArgumentException("Both x and y must be positive digit");
         }
+
+        this.value = parameters.get(2);
     }
 
     public Point getPoint() {
         return this.point;
+    }
+
+    public String getValue() {
+        return this.value;
     }
 }

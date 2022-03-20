@@ -15,7 +15,7 @@ public class PaintTest {
         List<String> parameters = null;
         Exception exception = assertThrows(IllegalArgumentException.class, () -> new Paint(parameters));
 
-        String expectedMessage = "Both x and y is required";
+        String expectedMessage = "Both point and value is required";
         String actualMessage = exception.getMessage();
 
         assertEquals(expectedMessage, actualMessage);
@@ -26,7 +26,7 @@ public class PaintTest {
         List<String> parameters = List.of("10");
         Exception exception = assertThrows(IllegalArgumentException.class, () -> new Paint(parameters));
 
-        String expectedMessage = "Both x and y is required";
+        String expectedMessage = "Both point and value is required";
         String actualMessage = exception.getMessage();
 
         assertEquals(expectedMessage, actualMessage);
@@ -34,18 +34,7 @@ public class PaintTest {
 
     @Test
     public void whenParameterIsWord_thenThrowException() {
-        List<String> parameters = List.of("ten", "eight");
-        Exception exception = assertThrows(IllegalArgumentException.class, () -> new Paint(parameters));
-
-        String expectedMessage = "Both x and y must be positive digit";
-        String actualMessage = exception.getMessage();
-
-        assertEquals(expectedMessage, actualMessage);
-    }
-
-    @Test
-    public void whenParameterIsNegative_thenThrowException() {
-        List<String> parameters = List.of("-10", "8");
+        List<String> parameters = List.of("ten", "eight", "o");
         Exception exception = assertThrows(IllegalArgumentException.class, () -> new Paint(parameters));
 
         String expectedMessage = "Both x and y must be positive digit";
@@ -56,11 +45,15 @@ public class PaintTest {
 
     @Test
     public void whenParameterIsValid_thenReturnCreate() {
-        List<String> parameters = List.of("10", "100");
+        List<String> parameters = List.of("10", "100", "o");
         Paint paint = new Paint(parameters);
 
         Point expectedPoint = new Point(10, 100);
         Point actualPoint = paint.getPoint();
         assertEquals(expectedPoint, actualPoint);
+
+        String expectedValue = "o";
+        String actualValue = paint.getValue();
+        assertEquals(expectedValue, actualValue);
     }
 }
