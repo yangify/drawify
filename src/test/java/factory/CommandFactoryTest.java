@@ -1,9 +1,7 @@
 package factory;
 
 import command.*;
-import exception.InvalidParameterException;
 import org.junit.Test;
-import sketch.line.Line;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertThrows;
