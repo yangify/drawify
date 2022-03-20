@@ -26,10 +26,8 @@ public class Sketch {
             int y2 = Integer.parseInt(parameters.get(3));
             this.p2 = new Point(x2, y2);
 
-            if (x1 < 0 || y1 < 0 || x2 < 0 || y2 < 0) throw new NumberFormatException();
-
         } catch (NumberFormatException e) {
-            throw new InvalidParameterException("All points must be positive digit");
+            throw new InvalidParameterException("All points must be digit");
         }
     }
 

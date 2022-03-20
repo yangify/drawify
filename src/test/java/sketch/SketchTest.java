@@ -50,18 +50,7 @@ public class SketchTest {
         List<String> parameters = List.of("10", "eight", "15", "15");
         Exception exception = assertThrows(InvalidParameterException.class, () -> new Sketch(parameters));
 
-        String expectedMessage = "All points must be positive digit";
-        String actualMessage = exception.getMessage();
-
-        assertEquals(expectedMessage, actualMessage);
-    }
-
-    @Test
-    public void whenParameterIsNegative_thenThrowException() {
-        List<String> parameters = List.of("10", "-8", "11", "12");
-        Exception exception = assertThrows(InvalidParameterException.class, () -> new Sketch(parameters));
-
-        String expectedMessage = "All points must be positive digit";
+        String expectedMessage = "All points must be digit";
         String actualMessage = exception.getMessage();
 
         assertEquals(expectedMessage, actualMessage);
